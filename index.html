@@ -4,33 +4,41 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>刘亦帆 · Yifan Liu</title>
-  <meta name="description" content="刘亦帆的个人主页：交互设计、智能硬件、软体机器人与人机交互项目。" />
+  <meta name="description" content="刘亦帆的个人主页：设计研究、人机交互、智能硬件、软体机器人与医疗体验设计。" />
   <style>
     :root {
       color-scheme: light;
-      --bg: #f7f9fc;
-      --text: #172033;
-      --muted: #5c667a;
-      --line: #dbe3ef;
-      --card: #ffffff;
-      --accent: #2563eb;
-      --accent-soft: #e0ecff;
-      --green-soft: #e6f7ef;
-      --green: #10875f;
-      --shadow: 0 18px 48px rgba(23, 32, 51, 0.08);
+      --bg: #d7dbd7;
+      --paper: #eef0ed;
+      --ink: #1f2422;
+      --muted: #68716d;
+      --soft: #aeb8b0;
+      --sage: #7e9187;
+      --line: rgba(32, 37, 34, 0.13);
+      --white: rgba(255, 255, 255, 0.62);
+      --glass: rgba(255, 255, 255, 0.34);
+      --shadow: 0 28px 90px rgba(41, 48, 44, 0.16);
+      --radius: 8px;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", "SF Pro Display", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+      color: var(--ink);
       background:
-        radial-gradient(circle at 80% 8%, rgba(37, 99, 235, 0.12), transparent 32%),
+        linear-gradient(rgba(32, 37, 34, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32, 37, 34, 0.045) 1px, transparent 1px),
+        radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.6), transparent 28%),
         var(--bg);
-      color: var(--text);
+      background-size: 42px 42px, 42px 42px, auto, auto;
       line-height: 1.65;
     }
 
@@ -40,61 +48,645 @@
     }
 
     .page {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 56px 0;
     }
 
     .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 56px;
+      gap: 18px;
+      padding: 22px 0;
+      background: rgba(217, 221, 216, 0.54);
+      backdrop-filter: blur(22px) saturate(1.18);
+      border-bottom: 1px solid var(--line);
     }
 
     .brand {
-      font-weight: 800;
-      letter-spacing: 0;
+      font-weight: 780;
+      letter-spacing: 0.01em;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-weight: 700;
     }
 
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 18px;
       color: var(--muted);
       font-size: 14px;
+      font-weight: 720;
     }
 
     .hero {
+      min-height: calc(100svh - 72px);
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 36px;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 0.82fr);
+      gap: 38px;
       align-items: center;
-      min-height: 68vh;
+      padding: 58px 0 84px;
     }
 
-    .eyebrow {
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .kicker {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 11px;
+      gap: 10px;
+      padding: 7px 12px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.78);
+      background: var(--white);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 760;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 28px 0 28px;
+      font-size: clamp(48px, 8vw, 108px);
+      line-height: 0.98;
+      letter-spacing: 0.01em;
+      font-weight: 760;
+    }
+
+    .outline {
+      color: transparent;
+      -webkit-text-stroke: 1.4px rgba(32, 37, 34, 0.76);
+      text-stroke: 1.4px rgba(32, 37, 34, 0.76);
+    }
+
+    .lead {
+      max-width: 670px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 1.8vw, 22px);
+      line-height: 1.78;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--glass);
+      backdrop-filter: blur(18px) saturate(1.15);
+      font-weight: 760;
+    }
+
+    .button.primary {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .portrait-wrap {
+      position: relative;
+      min-height: 650px;
+    }
+
+    .portrait-card {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transform: rotate(1.4deg);
+      border: 1px solid rgba(255, 255, 255, 0.56);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.06)),
+        var(--soft);
+    }
+
+    .portrait-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 34%;
+      filter: saturate(0.78) contrast(0.94) brightness(1.03);
+    }
+
+    .portrait-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 10%, rgba(236, 239, 235, 0.72), transparent 24%),
+        linear-gradient(180deg, rgba(236, 239, 235, 0.1) 0%, rgba(32, 37, 34, 0.08) 56%, rgba(32, 37, 34, 0.34) 100%),
+        linear-gradient(90deg, rgba(217, 221, 216, 0.42), transparent 42%);
+    }
+
+    .portrait-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, var(--bg) 0%, rgba(217, 221, 216, 0.52) 14%, transparent 42%),
+        linear-gradient(0deg, var(--bg) 0%, transparent 22%);
+      pointer-events: none;
+    }
+
+    .floating-note {
+      position: absolute;
+      left: -32px;
+      bottom: 54px;
+      width: min(270px, 72%);
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(236, 239, 235, 0.5);
+      backdrop-filter: blur(24px) saturate(1.2);
+      box-shadow: 0 18px 48px rgba(32, 37, 34, 0.12);
+    }
+
+    .floating-note strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .floating-note span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .side-label {
+      position: absolute;
+      top: 20px;
+      right: -18px;
+      writing-mode: vertical-rl;
+      padding: 14px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.56);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 760;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 86px 0 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr minmax(280px, 420px);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 66px);
+      line-height: 1.06;
+      letter-spacing: 0.005em;
+      font-weight: 740;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .marquee {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 18px 0 0;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--glass);
+      backdrop-filter: blur(18px) saturate(1.12);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 820;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project {
+      position: relative;
+      min-height: 310px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.18)),
+        rgba(236, 239, 235, 0.32);
+      backdrop-filter: blur(24px) saturate(1.16);
+      box-shadow: 0 18px 56px rgba(41, 48, 44, 0.08);
+      overflow: hidden;
+    }
+
+    .project::before {
+      content: attr(data-index);
+      position: absolute;
+      right: 18px;
+      bottom: -24px;
+      color: rgba(32, 37, 34, 0.07);
+      font-size: 132px;
+      font-weight: 950;
+      line-height: 1;
+    }
+
+    .project-type {
+      color: var(--sage);
+      font-size: 13px;
+      font-weight: 760;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .project h3 {
+      position: relative;
+      margin: 16px 0 12px;
+      font-size: clamp(25px, 3vw, 38px);
+      line-height: 1.12;
+      letter-spacing: 0.006em;
+      font-weight: 760;
+    }
+
+    .project p {
+      position: relative;
+      margin: 0;
+      max-width: 560px;
+      color: var(--muted);
+      line-height: 1.76;
+    }
+
+    .project-tags {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(126, 145, 135, 0.14);
+      color: #52645a;
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+    }
+
+    .statement {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper);
+      min-height: 330px;
+      display: grid;
+      align-content: end;
+    }
+
+    .statement p {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 40px);
+      line-height: 1.14;
+      font-weight: 740;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 157px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--glass);
+      backdrop-filter: blur(18px) saturate(1.12);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .timeline {
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .time {
+      color: #52645a;
+      font-weight: 950;
+    }
+
+    .timeline-item h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 88px;
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
       color: var(--muted);
       font-size: 14px;
     }
 
-    h1 {
-      max-width: 760px;
-      margin: 22px 0 18px;
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1.02;
-      letter-spacing: 0;
+    @media (max-width: 920px) {
+      .nav,
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero,
+      .section-head,
+      .projects,
+      .practice-grid,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+
+      .portrait-wrap {
+        min-height: 560px;
+      }
+
+      .floating-note {
+        left: 16px;
+        bottom: 20px;
+      }
+
+      .side-label {
+        right: 14px;
+      }
     }
 
-    .lead {
-      max-width: 680px;
-      margin: 0;
-      color: var(--muted);
+    @media (max-width: 600px) {
+      .page {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav-links,
+      .actions {
+        gap: 10px;
+      }
+
+      .portrait-wrap {
+        min-height: 480px;
+      }
+
+      .portrait-card {
+        transform: rotate(0deg);
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#">Yifan Liu <span>/ 刘亦帆</span></a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#practice">Practice</a>
+        <a href="#experience">Experience</a>
+        <a href="https://github.com/Ifan-6">GitHub</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <section class="hero-copy">
+        <div class="kicker">Design Research · Robotics · Care Interfaces</div>
+        <h1>Designing quiet systems for <span class="outline">human feeling</span>.</h1>
+        <p class="lead">
+          I am Yifan Liu, a design researcher and product-minded maker working across interaction design,
+          intelligent hardware, soft robotics, and embodied healthcare experiences.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#projects">Explore Work</a>
+          <a class="button" href="mailto:yifan.six@outlook.com">Contact Me</a>
+        </div>
+        <div class="marquee" aria-label="Focus areas">
+          <span class="chip">Human-Robot Interaction</span>
+          <span class="chip">Soft Robotics</span>
+          <span class="chip">Wearable Systems</span>
+          <span class="chip">Healthcare UX</span>
+        </div>
+      </section>
+
+      <aside class="portrait-wrap" aria-label="Portrait of Yifan Liu">
+        <div class="portrait-card">
+          <img src="assets/yifan-portrait.jpg" alt="Yifan Liu portrait" />
+        </div>
+        <div class="side-label">Portfolio 2026</div>
+        <div class="floating-note">
+          <strong>CAFA · SUSTech</strong>
+          <span>Design Management and Innovation Design / Intelligent Manufacturing and Robotics</span>
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <section class="section" id="projects">
+        <div class="section-head">
+          <h2>Selected projects as emotional technologies.</h2>
+          <p class="section-note">
+            The work moves between research, interaction, prototype, and story: tools for care, communication,
+            anxiety relief, sleep, and remote presence.
+          </p>
+        </div>
+
+        <div class="projects">
+          <article class="project" data-index="01">
+            <div class="project-type">Soft Robot · Social Training</div>
+            <h3>Multimodal Soft Robot</h3>
+            <p>A soft robot for autistic children's social training, integrating emotional expression, multimodal interaction, and pneumatic deformation.</p>
+            <div class="project-tags">
+              <span class="tag">User Research</span>
+              <span class="tag">PRD</span>
+              <span class="tag">Prototype</span>
+            </div>
+          </article>
+
+          <article class="project" data-index="02">
+            <div class="project-type">Wearable · Sound Interaction</div>
+            <h3>Pulse Murmur</h3>
+            <p>A wearable emotional intervention headset that maps HR/HRV signals to sound features for anxiety relief and bodily awareness.</p>
+            <div class="project-tags">
+              <span class="tag">Arduino</span>
+              <span class="tag">Python</span>
+              <span class="tag">User Test</span>
+            </div>
+          </article>
+
+          <article class="project" data-index="03">
+            <div class="project-type">Spatial Computing · Remote Care</div>
+            <h3>Vision Pro Haptic System</h3>
+            <p>A cross-border telepresence system using Apple Vision Pro and robotic arms for remote tactile interaction and emotional connection.</p>
+            <div class="project-tags">
+              <span class="tag">Vision Pro</span>
+              <span class="tag">Robotic Arm</span>
+              <span class="tag">HRI</span>
+            </div>
+          </article>
+
+          <article class="project" data-index="04">
+            <div class="project-type">Child UX · Medical Communication</div>
+            <h3>Pain Pals</h3>
+            <p>A non-verbal medical communication toolkit helping 4-8 year-old children describe pain through visual stickers and body mapping.</p>
+            <div class="project-tags">
+              <span class="tag">Healthcare</span>
+              <span class="tag">Service Design</span>
+              <span class="tag">Visual System</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="practice">
+        <div class="section-head">
+          <h2>My practice is half research, half making.</h2>
+          <p class="section-note">I like ideas that can be tested with bodies, objects, sensors, interfaces, and real conversations.</p>
+        </div>
+
+        <div class="practice-grid">
+          <div class="statement">
+            <p>From vague emotional needs to tangible interaction systems.</p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <h3>Research</h3>
+              <p>User interviews, classroom observation, literature review, journey maps, requirement documents, and insight synthesis.</p>
+            </article>
+            <article class="card">
+              <h3>Design</h3>
+              <p>Figma, Photoshop, Blender, product narratives, high-fidelity UI, visual systems, and exhibition storytelling.</p>
+            </article>
+            <article class="card">
+              <h3>Prototype</h3>
+              <p>Arduino, Raspberry Pi, sensors, 3D printing, soft hardware concepts, Python, Unity, and C/C++.</p>
+            </article>
+            <article class="card">
+              <h3>Coordinate</h3>
+              <p>Cross-functional project planning, roadshow preparation, research reports, and international innovation activities.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p class="section-note">A hybrid path through design innovation, international innovation platforms, and robotics.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">2025-2028</div>
+            <div>
+              <h3>Southern University of Science and Technology</h3>
+              <p>M.S. in Intelligent Manufacturing and Robotics.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">2024-2025</div>
+            <div>
+              <h3>UNIDO Shanghai · Project Platform Assistant</h3>
+              <p>Supported global innovation network events, project roadshows, industry exchange, research, and information synthesis.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">2021-2025</div>
+            <div>
+              <h3>Central Academy of Fine Arts</h3>
+              <p>B.A. in Design Management and Innovation Design, ranked in the top 1%.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Yifan Liu / 刘亦帆 · Portfolio Homepage</span>
+      <a href="mailto:yifan.six@outlook.com">yifan.six@outlook.com</a>
+    </footer>
+  </div>
+</body>
+</html>
