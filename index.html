@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>刘亦帆 · Yifan Liu</title>
+  <meta name="description" content="刘亦帆的个人主页：交互设计、智能硬件、软体机器人与人机交互项目。" />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f9fc;
+      --text: #172033;
+      --muted: #5c667a;
+      --line: #dbe3ef;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --accent-soft: #e0ecff;
+      --green-soft: #e6f7ef;
+      --green: #10875f;
+      --shadow: 0 18px 48px rgba(23, 32, 51, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 80% 8%, rgba(37, 99, 235, 0.12), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+      min-height: 68vh;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 22px 0 18px;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
